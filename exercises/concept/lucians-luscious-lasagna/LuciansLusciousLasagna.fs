@@ -1,9 +1,21 @@
 module LuciansLusciousLasagna
 
-// TODO: define the 'expectedMinutesInOven' binding
+let expectedMinutesInOven : int = 40
 
-// TODO: define the 'remainingMinutesInOven' function
 
-// TODO: define the 'preparationTimeInMinutes' function
+let remainingMinutesInOven (timeSpent: int) : int =
+    match (timeSpent > expectedMinutesInOven) with
+    | true ->
+        failwith("Spent time cannot be greater than Expected time")
+    | false ->
+        expectedMinutesInOven - timeSpent
 
-// TODO: define the 'elapsedTimeInMinutes' function
+
+let preparationTimeInMinutes (layers: int) : int =
+    layers * 2
+
+
+let elapsedTimeInMinutes (layers: int) (spentInOven: int) : int =
+    layers
+    |> preparationTimeInMinutes
+    |> (+) spentInOven
